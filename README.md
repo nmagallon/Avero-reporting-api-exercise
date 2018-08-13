@@ -26,7 +26,12 @@ From the command line do `flask run`
 
 Navigate to `http://127.0.0.1:5000/reporting` to run the desired report
 
-Example: `http://127.0.0.1:5000/reporting?business_id=f21c2579-b95e-4a5b-aead-a3cf9d60d43b&report=FCP&timeInterval=day&start=2018-06-02T14:00:00.000Z&end=2018-06-04T14:00:00.000Z`
+Example FCP: `http://127.0.0.1:5000/reporting?business_id=f21c2579-b95e-4a5b-aead-a3cf9d60d43b&report=FCP&timeInterval=week&start=2018-06-02T14:00:00.000Z&end=2018-06-16T14:00:00.000Z`
+
+Example LCP: `http://127.0.0.1:5000/reporting?business_id=f21c2579-b95e-4a5b-aead-a3cf9d60d43b&report=LCP&timeInterval=hour&start=2018-06-02T14:00:00.000Z&end=2018-06-04T14:00:00.000Z`
+
+Example EGS: `http://127.0.0.1:5000/reporting?business_id=f21c2579-b95e-4a5b-aead-a3cf9d60d43b&report=EGS&timeInterval=hour&start=2018-06-02T15:00:00.000Z&end=2018-06-02T19:00:00.000Z`
+
 
 ## Assumptions 
 * When timeInterval is a month, it is assumed to be 30 day increments.

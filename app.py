@@ -1,8 +1,7 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import calculations
 
-token = '<INSERT TOKEN HERE>'
-
+# token = '<INSERT TOKEN HERE>'
 
 app = Flask(__name__)
 calc = calculations.Calculations(token)
@@ -30,5 +29,5 @@ def report_page():
 		else:
 			assert report=="EGS" 
 			output = calc.EGS(business_id, report, timeInterval, start, end)		
-		return str(output)
+		return jsonify(output)
 		

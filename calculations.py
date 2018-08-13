@@ -24,6 +24,10 @@ class Calculations():
 		return end_interval
 
 	def update_cache(self, business_id, get_entries, category):
+		'''
+		Updates the cache for a given business_id and updates the category in the cache.
+		Returns True if the update was sucessful, otherwise False
+		'''
 		try:
 			visit_all_entries = False
 			offset = 0
@@ -65,7 +69,6 @@ class Calculations():
 		start_interval = start_time
 		end_interval = self.update_time_interval(start_interval, timeInterval)
 		while end_interval <= end_time:
-			print start_interval, end_interval
 			item_prices = 0.0
 			labor_costs = 0.0
 			# Find corresponding items
@@ -119,7 +122,6 @@ class Calculations():
 		start_interval = start_time
 		end_interval = self.update_time_interval(start_interval, timeInterval)
 		while end_interval <= end_time:
-			print start_interval, end_interval
 			item_costs = 0.0
 			item_prices = 0.0
 			#Find corresponding items
