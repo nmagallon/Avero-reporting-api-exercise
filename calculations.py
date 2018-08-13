@@ -6,7 +6,7 @@ class Calculations():
 	def __init__(self, token):
 		self.api_source ='https://secret-lake-26389.herokuapp.com/'
 		self.token = token
-		# cache structure: {business_id: labor: [{labor1}, {labor2}, ...], items: [{item1}, {item2}, ...]}
+		# cache structure: {business_id: 'labor': [{labor1}, {labor2}, ...], 'items': [{item1}, {item2}, ...]}
 		self. cache = {}
 
 	def update_time_interval(self, start_interval, timeInterval):
@@ -19,7 +19,8 @@ class Calculations():
 			end_interval = start_interval+timedelta(days=1)
 		elif timeInterval=='week':
 			end_interval = start_interval+timedelta(weeks=1)
-		elif timeInterval=='month':
+		else:
+			assert timeInterval=='month'
 			end_interval = start_interval+timedelta(days=30)
 		return end_interval
 
@@ -39,6 +40,7 @@ class Calculations():
 				offset += 500 
 				if offset >= entries['count']:
 					visit_all_entries = True
+					assert len(self.cache[business_id][category])==entries['count']
 			print "updated cache: " + str(len(self.cache[business_id][category])) + " new entries added"
 			return True
 		except:
@@ -131,6 +133,7 @@ class Calculations():
 				if created >= start_interval and created < end_interval:
 					item_costs += item['cost']
 					item_prices += item['price']
+			# Calculate output
 			if item_prices>0:
 				value = (item_costs/item_prices)*100.0
 			else:
@@ -166,7 +169,7 @@ class Calculations():
 		start_interval = start_time
 		end_interval = self.update_time_interval(start_interval, timeInterval)
 		while end_interval <= end_time:
-			# list of employees who worked during the timestep
+			# List of employees who worked during the timestep
 			employees = []
 			# Determine which employees were working during the timestep
 			for labor in self.cache[business_id]['labor']:
@@ -180,11 +183,12 @@ class Calculations():
 				sales = 0.0
 				# Find items sold by employee during this timeframe
 				for item in self.cache[business_id]['items']:
-					if item['employee_id']==employee_id:
+					if item['employee_id']==employee_id and not item['voided']:
 						created = datetime.strptime(item['created_at'],'%Y-%m-%dT%H:%M:%S.%fZ')
 						# Make sure item creation falls within the timestep 
 						if (created >= start_interval and created < end_interval):
 							sales += item['price']
+				# Update output to include total sales for the employee during the timestep
 				output['data'].append({'timeFrame': {'start': str(start_interval), 'end':str(end_interval)}, 'value': sales, 'employee':employee_name})
 			# Update time interval for next iteration
 			start_interval = end_interval

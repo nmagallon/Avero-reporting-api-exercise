@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 import calculations
 
-# token = '<INSERT TOKEN HERE>'
+token = '<INSERT TOKEN HERE>'
 
 app = Flask(__name__)
 calc = calculations.Calculations(token)

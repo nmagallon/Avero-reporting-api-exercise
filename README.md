@@ -5,6 +5,7 @@ This repository is the implementation of the exercise that can be found at https
 
 ## Requirements
 Python 2.7 and pip
+Make sure that the pip is for Python 2.7 and not Python 3
 
 ## Installation
 Install virtualenv to have a virtual environment for the required python libraries
@@ -28,7 +29,7 @@ Navigate to `http://127.0.0.1:5000/reporting` to run the desired report
 
 Example FCP: `http://127.0.0.1:5000/reporting?business_id=f21c2579-b95e-4a5b-aead-a3cf9d60d43b&report=FCP&timeInterval=week&start=2018-06-02T14:00:00.000Z&end=2018-06-16T14:00:00.000Z`
 
-Example LCP: `http://127.0.0.1:5000/reporting?business_id=f21c2579-b95e-4a5b-aead-a3cf9d60d43b&report=LCP&timeInterval=hour&start=2018-06-02T14:00:00.000Z&end=2018-06-04T14:00:00.000Z`
+Example LCP: `http://127.0.0.1:5000/reporting?business_id=f21c2579-b95e-4a5b-aead-a3cf9d60d43b&report=LCP&timeInterval=day&start=2018-06-02T14:00:00.000Z&end=2018-06-04T14:00:00.000Z`
 
 Example EGS: `http://127.0.0.1:5000/reporting?business_id=f21c2579-b95e-4a5b-aead-a3cf9d60d43b&report=EGS&timeInterval=hour&start=2018-06-02T15:00:00.000Z&end=2018-06-02T19:00:00.000Z`
 
