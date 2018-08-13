@@ -5,6 +5,7 @@ This repository is the implementation of the exercise that can be found at https
 
 ## Requirements
 Python 2.7 and pip
+
 Make sure that the pip is for Python 2.7 and not Python 3
 
 ## Installation
