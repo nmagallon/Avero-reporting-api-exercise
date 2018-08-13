@@ -20,7 +20,7 @@ Activate the virutal environment and install the required libraries
 `pip install -r requirements.txt`
 
 ## Deployment 
-Input your token on line 6 in app.py
+Input your token at the begining of app.py where it says '<INSERT TOKEN HERE>'. Make sure to replace everything, including the brackets (<>).
 
 From the command line do `flask run`
 
@@ -37,8 +37,8 @@ Example: `http://127.0.0.1:5000/reporting?business_id=f21c2579-b95e-4a5b-aead-a3
 * Convert order item created time to be datetime format and not string format upon first lookup so as to not need to convert it for comparisons everytime the order item is looked up
 * Optimize calculations so it is not as iterative to better optimize time complexity. Currently it is slow!
 	* Ideas: determine if item list for a business is ordered by creation time (it likely is because it is a list) and can then stop iterating once an item has a creation time larger than the end time.
-* Parallelize computations in LCP to determine total labor costs in parallel with total sales for a given timestep.  
-* Handle edge cases for start, end, and timeInterval. Example end is 2 days and 2 hours past start but timeInterval is days
+	* Parallelize computations in LCP to determine total labor costs in parallel with total sales for a given timestep.  
+* Handle edge cases for start, end, and timeInterval. Example: end is 2 days and 2 hours past start but timeInterval is days
 * Implement database to store cached results so it can handle larger datasets.
 * Implement more checks that request is in correct format.
 * Split calculations into seperate classes so it easier for different people to develop/modify the different reports concurrently. 

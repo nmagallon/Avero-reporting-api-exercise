@@ -1,9 +1,8 @@
 from flask import Flask, request
-import requests
-from datetime import datetime, timedelta
 import calculations
 
 token = '<INSERT TOKEN HERE>'
+
 
 app = Flask(__name__)
 calc = calculations.Calculations(token)
