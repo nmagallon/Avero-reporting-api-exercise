@@ -22,7 +22,7 @@ Activate the virutal environment and install the required libraries
 `pip install -r requirements.txt`
 
 ## Deployment 
-Input your token at the begining of app.py where it says "<INSERT TOKEN HERE>". Make sure to replace everything, including the brackets (<>).
+Input your token at the begining of app.py where it says "INSERT TOKEN HERE". Make sure to replace everything, including the brackets (<>).
 
 From the command line do `flask run`
 
